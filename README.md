@@ -2,7 +2,6 @@
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://vphkvnvgykbobebausb62v.streamlit.app/#da35274d)
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://python.org)
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![Active](https://img.shields.io/badge/Status-Active-green.svg)](https://github.com)
 
 <div align="center">
@@ -46,7 +45,7 @@ CardioSense is an AI-powered health tool that predicts heart disease risk using 
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/cardiosense.git
+git clone https://github.com/AryanSONI00/CardioSense-.git
 cd cardiosense
 ```
 
@@ -91,9 +90,6 @@ Contributions are welcome! Feel free to:
 3. Make your changes
 4. Submit a pull request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## ⚠️ Disclaimer
 
@@ -106,5 +102,5 @@ Give a ⭐️ if this project helped you!
 ---
 
 <div align="center">
-  Made with ❤️ by [Your Name]
+  Made by <b> Aryan Soni </b>
 </div>
