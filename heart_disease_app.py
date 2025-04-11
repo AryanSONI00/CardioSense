@@ -27,11 +27,12 @@ st.markdown("""
         padding: 1.5rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
         margin-bottom: 1.5rem;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
     }
 
     /* Header styling */
@@ -71,41 +72,95 @@ st.markdown("""
         gap: 0.5rem;
     }
 
-    /* Input styling */
+    /* Improved Slider Styling */
+    .stSlider {
+        margin: 2.5rem 0;
+        padding: 0 1rem;
+        position: relative;
+    }
+
     .stSlider > div > div {
-        background: linear-gradient(90deg, #ff4b4b 0%, #ff8f8f 100%) !important;
+        display: flex;
+        flex-direction: column;
     }
-    .stSlider > div > div > div {
-        background: #ffffff !important;
-        border: 2px solid #ff4b4b !important;
+
+    .stSlider > div > div > div:nth-child(1) {
+        margin-bottom: 1rem; /* spacing between label and slider */
     }
+
+    .stSlider > div > div > div:nth-child(2) {
+        height: 6px !important;
+        background: #ffffff30 !important;
+        border-radius: 6px !important;
+        position: relative;
+    }
+
+    /* Slider handle */
+    .stSlider > div > div > div:nth-child(3) {
+        background: #ff4b4b !important;
+        height: 16px !important;
+        width: 16px !important;
+        border-radius: 50% !important;
+        top: -5px !important;
+        z-index: 2;
+        position: relative;
+    }
+
+    /* Display value above the slider handle */
+    .stSlider p {
+        color: #fff !important;
+        font-weight: 500;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 2px 6px;
+        border-radius: 5px;
+        position: absolute !important;
+        top: -25px !important;
+        z-index: 5;
+        font-size: 0.9rem;
+    }
+
+    /* Avoid overlapping values */
+    .stSlider > div > div > div:nth-child(3):hover + p {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* Input styling */
     .stSelectbox > div > div {
         background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 75, 75, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 8px;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .stSelectbox > div > div:hover {
-        border-color: #ff4b4b;
+        border-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.07);
     }
 
     /* Button styling */
     .stButton > button {
         width: 100%;
-        background: linear-gradient(135deg, #ff4b4b 0%, #ff6b6b 100%);
+        background: rgba(255, 255, 255, 0.08);
         color: white;
         padding: 0.8rem 1.5rem;
         font-size: 1.2rem;
         font-weight: 600;
-        border: none;
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 10px;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         text-transform: uppercase;
         letter-spacing: 1px;
+        backdrop-filter: blur(10px);
     }
     .stButton > button:hover {
-        background: linear-gradient(135deg, #ff6b6b 0%, #ff8f8f 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(255, 75, 75, 0.4);
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-color: rgba(255, 255, 255, 0.15);
+    }
+    .stButton > button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     /* Risk indicators */
@@ -114,7 +169,11 @@ st.markdown("""
         border-radius: 15px;
         text-align: center;
         backdrop-filter: blur(10px);
-        transition: transform 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .risk-container:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     .high-risk {
         background: linear-gradient(135deg, rgba(255, 75, 75, 0.1) 0%, rgba(255, 75, 75, 0.05) 100%);
@@ -127,7 +186,7 @@ st.markdown("""
 
     /* Progress bar */
     .stProgress > div > div > div {
-        background: linear-gradient(90deg, #ff4b4b 0%, #ff8f8f 100%);
+        background: rgba(255, 255, 255, 0.2);
     }
 
     /* Expander styling */
