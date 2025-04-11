@@ -4,7 +4,7 @@ import pickle
 
 # Set page config must be the first Streamlit command
 st.set_page_config(
-    page_title="Heart Disease Risk Predictor",
+    page_title="Cardio Sense",
     page_icon="❤️",
     layout="wide"
 )
