@@ -188,7 +188,13 @@ If you find CardioSense helpful, consider:
 ---
 
 <div align="center">
-  <p>Developed with ❤️ by <b>Aryan Soni</b></p>
-[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AryanSONI00)
-
+  <h3>Developed with ❤️ by Aryan Soni</h3>
+  <p>
+    <a href="https://github.com/AryanSONI00">
+      <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+    </a>
+    <a href="https://www.linkedin.com/in/aryan-soni-41b2a2250/">
+      <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+    </a>
+  </p>
 </div>
