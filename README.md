@@ -188,12 +188,12 @@ If you find CardioSense helpful, consider:
 ---
 
 <div align="center">
-  <h3>Developed with ❤️ by Aryan Soni</h3>
+  <h3>Developed by Aryan Soni</h3>
   <p>
     <a href="https://github.com/AryanSONI00">
       <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
     </a>
-    <a href="https://www.linkedin.com/in/aryan-soni-41b2a2250/">
+    <a href="www.linkedin.com/in/aryan-soni-604696252">
       <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
     </a>
   </p>
