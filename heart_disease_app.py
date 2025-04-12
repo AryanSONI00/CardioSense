@@ -27,12 +27,6 @@ st.markdown("""
         padding: 1.5rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
         margin-bottom: 1.5rem;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        border-color: rgba(255, 255, 255, 0.2);
     }
 
     /* Header styling */
@@ -79,20 +73,32 @@ st.markdown("""
         position: relative;
     }
 
-    .stSlider > div > div {
-        display: flex;
-        flex-direction: column;
+    /* Add min-max labels */
+    .stSlider > div > div > div:nth-child(1) {
+        display: flex !important;
+        justify-content: space-between !important;
+        margin-bottom: 0.5rem !important;
     }
 
-    .stSlider > div > div > div:nth-child(1) {
-        margin-bottom: 1rem; /* spacing between label and slider */
+    .stSlider > div > div > div:nth-child(1) > label {
+        flex: 1;
+    }
+
+    .stSlider > div > div > div:nth-child(1)::before,
+    .stSlider > div > div > div:nth-child(1)::after {
+        content: attr(data-min);
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .stSlider > div > div > div:nth-child(1)::after {
+        content: attr(data-max);
     }
 
     .stSlider > div > div > div:nth-child(2) {
         height: 6px !important;
         background: #ffffff30 !important;
         border-radius: 6px !important;
-        position: relative;
     }
 
     /* Slider handle */
@@ -102,8 +108,6 @@ st.markdown("""
         width: 16px !important;
         border-radius: 50% !important;
         top: -5px !important;
-        z-index: 2;
-        position: relative;
     }
 
     /* Display value above the slider handle */
@@ -113,16 +117,7 @@ st.markdown("""
         background: rgba(0, 0, 0, 0.5);
         padding: 2px 6px;
         border-radius: 5px;
-        position: absolute !important;
-        top: -25px !important;
-        z-index: 5;
         font-size: 0.9rem;
-    }
-
-    /* Avoid overlapping values */
-    .stSlider > div > div > div:nth-child(3):hover + p {
-        visibility: visible;
-        opacity: 1;
     }
 
     /* Input styling */
@@ -130,11 +125,6 @@ st.markdown("""
         background-color: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 8px;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .stSelectbox > div > div:hover {
-        border-color: rgba(255, 255, 255, 0.2);
-        background-color: rgba(255, 255, 255, 0.07);
     }
 
     /* Button styling */
@@ -147,20 +137,9 @@ st.markdown("""
         font-weight: 600;
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 10px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         text-transform: uppercase;
         letter-spacing: 1px;
         backdrop-filter: blur(10px);
-    }
-    .stButton > button:hover {
-        background: rgba(255, 255, 255, 0.12);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        border-color: rgba(255, 255, 255, 0.15);
-    }
-    .stButton > button:active {
-        transform: translateY(0);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     /* Risk indicators */
@@ -169,11 +148,6 @@ st.markdown("""
         border-radius: 15px;
         text-align: center;
         backdrop-filter: blur(10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .risk-container:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     .high-risk {
         background: linear-gradient(135deg, rgba(255, 75, 75, 0.1) 0%, rgba(255, 75, 75, 0.05) 100%);
@@ -194,11 +168,6 @@ st.markdown("""
         background-color: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 8px;
-        transition: all 0.3s ease;
-    }
-    .streamlit-expanderHeader:hover {
-        background-color: rgba(255, 75, 75, 0.1);
-        border-color: rgba(255, 75, 75, 0.3);
     }
 
     /* Help text */
@@ -256,51 +225,39 @@ def main():
     with col1:
         st.markdown("""
             <div class="card">
-                <div class="section-header">
-                    👤 Personal Information
-                </div>
+                <div class="section-header">👤 Personal Information</div>
             </div>
         """, unsafe_allow_html=True)
 
         with st.container():
-            age = st.slider("Age", 20, 100, 50,
+            st.markdown('<div class="slider-container">', unsafe_allow_html=True)
+            age = st.slider("Age (20-100)", 20, 100, 50,
                           help="Enter your age in years")
+            st.markdown('</div>', unsafe_allow_html=True)
             sex = st.selectbox("Biological Sex", ["Male", "Female"],
                              help="Select your biological sex")
-
-        st.markdown("""
-            <div class="card">
-                <div class="section-header">
-                    💓 Heart Health
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
-
-        with st.container():
-            trestbps = st.slider("Resting Blood Pressure (mm Hg)", 90, 200, 120,
-                               help="Your resting blood pressure in millimeters of mercury")
 
     with col2:
         st.markdown("""
             <div class="card">
-                <div class="section-header">
-                    🩺 Clinical Measurements
-                </div>
+                <div class="section-header">🩺 Clinical Measurements</div>
             </div>
         """, unsafe_allow_html=True)
 
         with st.container():
-            chol = st.slider("Cholesterol (mg/dl)", 100, 600, 250,
+            st.markdown('<div class="slider-container">', unsafe_allow_html=True)
+            trestbps = st.slider("Resting Blood Pressure (90-200 mm Hg)", 90, 200, 120,
+                               help="Your resting blood pressure in millimeters of mercury")
+            chol = st.slider("Cholesterol (100-600 mg/dl)", 100, 600, 250,
                            help="Your serum cholesterol level in mg/dl")
-            thalach = st.slider("Maximum Heart Rate", 70, 220, 150,
+            thalach = st.slider("Maximum Heart Rate (70-220)", 70, 220, 150,
                               help="Maximum heart rate achieved during exercise")
+            st.markdown('</div>', unsafe_allow_html=True)
 
     with col3:
         st.markdown("""
             <div class="card">
-                <div class="section-header">
-                    😣 Symptoms
-                </div>
+                <div class="section-header">😣 Symptoms</div>
             </div>
         """, unsafe_allow_html=True)
 
@@ -354,9 +311,7 @@ def main():
         st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("""
             <div class="card">
-                <div class="section-header">
-                    📊 Analysis Results
-                </div>
+                <div class="section-header">📊 Analysis Results</div>
             </div>
         """, unsafe_allow_html=True)
 
